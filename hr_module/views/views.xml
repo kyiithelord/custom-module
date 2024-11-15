@@ -1,0 +1,16 @@
+<odoo>
+  <data>
+
+    <record id="action_promotion_demotion" model="ir.actions.act_window">
+      <field name="name">Pormotion/Demotion</field>
+      <field name="res_model">employee.promotion.demotion</field>
+      <field name="view_mode">tree,form,kanban</field>
+  </record>
+
+  <menuitem
+      action="action_promotion_demotion"
+      id="menu_promotion_demotion"
+      parent="hr.menu_hr_root"
+  />
+  </data>
+</odoo>

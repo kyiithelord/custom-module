@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <menuitem
+    id='menu_promotion_demotion'
+    action="action_promotion_demotion"
+    parent="hr.menu_hr_root"
+  />
+
+</odoo>

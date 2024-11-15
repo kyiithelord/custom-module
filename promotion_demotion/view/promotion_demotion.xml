@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="view_promotion_demotion_form" model="ir.ui.view">
+    <field name="name">promotion.demotion.form</field>
+    <field name="model">promotion.demotion</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <div class="row">
+            <div class="col-lg-6">
+              <group string='Employee General Info'>
+                <field name="employee_id" />
+                <field name="action_type" />
+                <field name="start_date" />
+              </group>
+            </div>
+            <div class="col-lg-6">
+              <group>
+                <field name="current_salary" />
+                <field name="increase_salary_amount"
+                  attrs="{'invisible': [('action_type', '==', 'demotion')],'readonly':[('action_type','==','none')]}" />
+                <field name="decrease_salary_amount"
+                  attrs="{'invisible': [('action_type', '==', 'promotion')],'readonly':[('action_type','==','none')]}" />
+              </group>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <group>
+              <field name="current_job_position" />
+              <field name="current_department" />
+              <field name="new_job_position" />
+              <field name="new_department" />
+            </group>
+          </div>
+        </sheet>
+        <!-- Message chatter section -->
+        <div class="oe_chatter">
+          <field name="message_follower_ids" />
+          <field name="message_ids" options="{'post_refresh':'recipients'}" />
+        </div>
+      </form>
+    </field>
+  </record>
+
+
+  <record id="view_promotion_demotion_tree" model='ir.ui.view'>
+    <field name='name'>promotion.demotion.tree</field>
+    <field name='model'>promotion.demotion</field>
+    <field name='arch' type='xml'>
+      <tree>
+        <field name='employee_id' />
+        <field name='current_job_position' />
+        <field name='current_department' />
+        <field name='current_salary' />
+      </tree>
+    </field>
+  </record>
+
+
+  <record id="action_promotion_demotion" model="ir.actions.act_window">
+    <field name="name">Promotion Demotion</field>
+    <field name="type">ir.actions.act_window</field>
+    <field name="res_model">promotion.demotion</field>
+    <field name="view_mode">tree,form</field>
+    <!-- <field name="view_id" ref='view_promotion_demotion_tree' /> -->
+  </record>
+
+
+</odoo>
